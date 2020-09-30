@@ -23,7 +23,12 @@ message.addEventListener('keyup', ()=>{
 //listen for events
 socket.on('chat', (data)=>{
     feedback.innerHTML = "";
-    output.innerHTML += '<p><strong>'+data.handle+':</strong>'+data.message+'</p>';
+    if(handle.value === data.handle){
+        output.innerHTML += '<p><strong>'+'You'+':</strong>'+data.message+'</p>';
+    }
+    else{
+        output.innerHTML += '<p><strong>'+data.handle+':</strong>'+data.message+'</p>';
+    }
 });
 
 socket.on('typing', (data)=>{
